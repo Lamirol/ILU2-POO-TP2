@@ -39,5 +39,22 @@ public class Clavier {
 		} while (!(entreeCorrecte && chiffre > 0));
 		return chiffre;
 	}
+	
+	public static String entrerClavier(String question) {
+		boolean entreeCorrecte = false;
+		String mot = null;
+		do {
+			System.out.println(question);
+			try {
+				mot = scan.next();
+				entreeCorrecte = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Vous devez entrer un chiffre positif !");
+				scan.next();
+				entreeCorrecte = false;
+			}
+		} while (!(entreeCorrecte && mot != null));
+		return mot;
+	}
 
 }
