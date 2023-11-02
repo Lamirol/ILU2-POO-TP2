@@ -44,6 +44,7 @@ public class BoundaryPrendreEtal {
 		
 		int indiceEtal = this.controlPrendreEtal.prendreEtal(nomVendeur, produit, quantiteProduit);
 		StringBuilder chaine = new StringBuilder();
-		chaine.append("Le vendeur " + nomVendeur + " s'est installé à l'étal n°" + indiceEtal);
+		chaine.append("Le vendeur " + nomVendeur + " s'est installé à l'étal n°" + (indiceEtal+1));
+		System.out.println(chaine.toString());
 	}
 }
