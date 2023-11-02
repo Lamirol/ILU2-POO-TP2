@@ -23,9 +23,14 @@ public class ControlAcheterProduit {
 	
 	public String[] trouverProduit(String produit) {
 		Gaulois[] gaulois = this.village.rechercherVendeursProduit(produit);
-		String[] listGauloisString = new String[gaulois.length];
-		for (int indiceListeGaulois = 0; indiceListeGaulois<gaulois.length; indiceListeGaulois++) {
-			listGauloisString[indiceListeGaulois] = gaulois[indiceListeGaulois].getNom();
+		String[] listGauloisString;
+		if (gaulois !=null) {
+			listGauloisString = new String[gaulois.length];
+			for (int indiceListeGaulois = 0; indiceListeGaulois<gaulois.length; indiceListeGaulois++) {
+				listGauloisString[indiceListeGaulois] = gaulois[indiceListeGaulois].getNom();
+			}
+		} else {
+			listGauloisString = null;
 		}
 		return listGauloisString;
 	}

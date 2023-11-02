@@ -1,6 +1,6 @@
 package frontiere;
 
-//import java.util.Scanner;
+//import java.util.Scanner; //Non-utilisé avec la classe Clavier
 
 import controleur.ControlAcheterProduit;
 
@@ -34,18 +34,19 @@ public class BoundaryAcheterProduit {
 			chaineProduit.append("Désolé, personne ne vend ce produit au marché");
 			System.out.println(chaineProduit.toString());
 		} else {
-			chaineProduit.append("Chez quel commerçant voulez-vous acheter des " + produit + " ?");
+			chaineProduit.append("Chez quel commerçant voulez-vous acheter des " + produit + " ?\n");
 			for (int indiceListeVendeur = 0; indiceListeVendeur<listeVendeurs.length; indiceListeVendeur++) {
 				chaineProduit.append((indiceListeVendeur+1) + " - " + listeVendeurs[indiceListeVendeur] + "\n");
 			}
 			int numVendeur = Clavier.entrerEntier(chaineProduit.toString());
 			
-			StringBuilder chaineDeplacement = new StringBuilder();
 			while(numVendeur > (listeVendeurs.length)) {
+				StringBuilder chaineDeplacement = new StringBuilder();
 				chaineDeplacement.append("Veuillez entrer un entier valide.\n");
 				numVendeur = Clavier.entrerEntier(chaineDeplacement.toString());
 			}
 			String nomVendeur = listeVendeurs[(numVendeur-1)];
+			StringBuilder chaineDeplacement = new StringBuilder();
 			chaineDeplacement.append(nomAcheteur + " se déplace jusqu'à l'étal du vendeur " + nomVendeur + "\n");
 			chaineDeplacement.append("Bonjour " + nomAcheteur + "\n");
 			chaineDeplacement.append("Combien de " + produit + " voulez-vous acheter ?\n");
@@ -62,7 +63,8 @@ public class BoundaryAcheterProduit {
 			} else {
 				chaineAchat.append(nomAcheteur + " veut acheter " + quantite + " " + produit + ", malheureusement " 
 						+ nomVendeur + " n'en a plus que " + quantiteAchetee + ". " + nomAcheteur + " achète tout le stock de " + nomVendeur + ".\n");
-			}				
+			}	
+			System.out.println(chaineAchat.toString());
 		}
 	}
 }
