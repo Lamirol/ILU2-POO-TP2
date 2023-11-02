@@ -1,6 +1,8 @@
 package controleur;
 
 import villagegaulois.Village;
+import personnages.Gaulois;	//Je suis obligé d'importer la classe Gaulois pour pouvoir gérer l'import de la liste retournée par village.rechercheVendeursProduit
+import villagegaulois.Etal; //Pareil pour l'étal retourné par trouverEtalVendeur
 
 public class ControlAcheterProduit {
 	private Village village;
@@ -15,5 +17,33 @@ public class ControlAcheterProduit {
 		this.controlTrouverEtalVendeur = controlTrouverEtalVendeur;
 	}
 
-	//TODO a completer
+	public boolean verifierIdentite(String nomAcheteur) {
+		return this.controlVerifierIdentite.verifierIdentite(nomAcheteur);
+	}
+	
+	public String[] trouverProduit(String produit) {
+		Gaulois[] gaulois = this.village.rechercherVendeursProduit(produit);
+		String[] listGauloisString = new String[gaulois.length];
+		for (int indiceListeGaulois = 0; indiceListeGaulois<gaulois.length; indiceListeGaulois++) {
+			listGauloisString[indiceListeGaulois] = gaulois[indiceListeGaulois].getNom();
+		}
+		return listGauloisString;
+	}
+	
+	public Etal trouverEtalVendeur(String nomVendeur) {
+		if(!this.controlVerifierIdentite.verifierIdentite(nomVendeur)) {
+			return null;
+		} else {
+			return this.controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur);
+		}
+	}
+	
+	public int acheterProduit(int quantite, String nomVendeur) {
+		if(!this.controlVerifierIdentite.verifierIdentite(nomVendeur)) {
+			return -1;
+		} else {
+			Etal etal = this.controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur);
+			return etal.acheterProduit(quantite);
+		}
+	}
 }
