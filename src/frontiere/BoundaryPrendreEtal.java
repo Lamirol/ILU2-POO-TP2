@@ -1,12 +1,12 @@
 package frontiere;
 
-//import java.util.Scanner;
+//import java.util.Scanner; //Inutile avec la classe Clavier
 
 import controleur.ControlPrendreEtal;
 
 public class BoundaryPrendreEtal {
 	private ControlPrendreEtal controlPrendreEtal;
-	//private Scanner scan = new Scanner(System.in);	//Inutile en utilisant la classe clavier
+	//private Scanner scan = new Scanner(System.in);	//Inutile en utilisant la classe Clavier
 
 	public BoundaryPrendreEtal(ControlPrendreEtal controlChercherEtal) {
 		this.controlPrendreEtal = controlChercherEtal;
@@ -44,7 +44,7 @@ public class BoundaryPrendreEtal {
 		
 		int indiceEtal = this.controlPrendreEtal.prendreEtal(nomVendeur, produit, quantiteProduit);
 		StringBuilder chaine = new StringBuilder();
-		chaine.append("Le vendeur " + nomVendeur + " s'est installé à l'étal n°" + (indiceEtal+1));
+		chaine.append("Le vendeur " + nomVendeur + " s'est installé à l'étal n°" + indiceEtal);
 		System.out.println(chaine.toString());
 	}
 }

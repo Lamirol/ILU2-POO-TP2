@@ -43,7 +43,7 @@ public class ControlAcheterProduit {
 		}
 	}
 	
-	public int acheterProduit(int quantite, String nomVendeur) {
+	public int acheterProduit(String nomVendeur, int quantite) {
 		if(!this.controlVerifierIdentite.verifierIdentite(nomVendeur)) {
 			return -1;
 		} else {

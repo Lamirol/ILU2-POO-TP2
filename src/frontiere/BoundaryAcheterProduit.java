@@ -52,7 +52,7 @@ public class BoundaryAcheterProduit {
 			chaineDeplacement.append("Combien de " + produit + " voulez-vous acheter ?\n");
 			int quantite = Clavier.entrerEntier(chaineDeplacement.toString());
 			
-			int quantiteAchetee = this.controlAcheterProduit.acheterProduit(quantite, nomVendeur);
+			int quantiteAchetee = this.controlAcheterProduit.acheterProduit(nomVendeur, quantite);
 			StringBuilder chaineAchat = new StringBuilder();
 			if (quantiteAchetee == -1){
 				chaineAchat.append("Je suis désolé " + nomAcheteur + " mais " + nomVendeur + " n'est pas un habitant de notre village et ne peut pas commercer ici\n");
